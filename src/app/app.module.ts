@@ -7,6 +7,7 @@ import { LayoutModule } from './layout/layout.module';
 import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
+import { MaterialProviders } from './material/providers';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { PagesModule } from './pages/pages.module';
     MaterialModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    MaterialProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
