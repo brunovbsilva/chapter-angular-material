@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class LayoutComponent {
 
+  isChecked: boolean;
+  onDarkModeSwitched({ checked }: MatSlideToggleChange) {
+  }
 }
