@@ -7,9 +7,6 @@ import { ThemeService } from './core/themes/theme.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-  
-  title = 'chapter-angular-material';
-
   constructor(private themeService: ThemeService) {}
 
   ngAfterViewInit(): void {
