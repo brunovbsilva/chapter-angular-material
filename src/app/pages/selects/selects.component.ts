@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 interface Pokemon {
   value: string;
@@ -18,7 +18,17 @@ interface PokemonGroup {
   styleUrls: ['./selects.component.scss']
 })
 export class SelectsComponent {
-  pokemonControl = new FormControl('');
+  form = new FormGroup({
+    pokemon: new FormControl(''),
+    toppings1: new FormControl(''),
+    toppings2: new FormControl(''),
+    toppings3: new FormControl(''),
+    toppings4: new FormControl('')
+  });
+
+  get toppings2() { return this.form.get('toppings2')!; };
+  get toppings3() { return this.form.get('toppings3')!; };
+
   pokemonGroups: PokemonGroup[] = [
     {
       name: 'Grass',
@@ -54,6 +64,5 @@ export class SelectsComponent {
     },
   ];
 
-  toppings = new FormControl('');
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 }

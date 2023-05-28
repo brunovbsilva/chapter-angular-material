@@ -1,13 +1,15 @@
 @use '@angular/material' as mat;
 
-$my-h1: mat.define-typography-level(24px, 32px, 600, Roboto, normal);
-$my-h2: mat.define-typography-level(20px, 28px, 500, Roboto, normal);
-$my-h3: mat.define-typography-level(16px, 22px, 400, Roboto, normal);
-$my-h4: mat.define-typography-level(14px, 20px, 400, Roboto, normal);
-$my-body-1: mat.define-typography-level(12px, 16px, 400, Roboto, normal);
-$my-body-2: mat.define-typography-level(10px, 14px, 300, Roboto, normal);
-$my-caption: mat.define-typography-level(16px, 20px, 400, Roboto, normal);
-$my-button: mat.define-typography-level(24px, 32px, 400, Roboto, normal);
+$my-font-name: 'Noto Sans JP';
+
+$my-h1: mat.define-typography-level(24px, 32px, 700, $my-font-name, normal);
+$my-h2: mat.define-typography-level(20px, 28px, 700, $my-font-name, normal);
+$my-h3: mat.define-typography-level(16px, 22px, 400, $my-font-name, normal);
+$my-h4: mat.define-typography-level(12px, 18px, 400, $my-font-name, normal);
+$my-body-1: mat.define-typography-level(14px, 16px, 400, $my-font-name, normal);
+$my-body-2: mat.define-typography-level(12px, 14px, 300, $my-font-name, normal);
+$my-caption: mat.define-typography-level(16px, 20px, 300, $my-font-name, normal);
+$my-button: mat.define-typography-level(14px, 16px, 700, $my-font-name, normal);
 
 $my-typography: mat.define-typography-config(
     $headline-5: $my-h1,

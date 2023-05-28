@@ -8,5 +8,5 @@ const matFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
 }
 
 export const MaterialProviders = [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: matFormFieldDefaultOptions },
+    // { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: matFormFieldDefaultOptions },
 ]
