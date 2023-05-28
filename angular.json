@@ -95,7 +95,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "codeCoverageExclude": [
+              "src/**/*.model.ts"
+            ]
           }
         }
       }
