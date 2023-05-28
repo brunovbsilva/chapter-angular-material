@@ -1,35 +1,69 @@
-<h4>Group</h4>
-<mat-form-field>
-    <mat-label>Pokemon</mat-label>
-    <mat-select [formControl]="pokemonControl">
-      <mat-option>-- None --</mat-option>
-      <mat-optgroup *ngFor="let group of pokemonGroups" [label]="group.name"
-                    [disabled]="group.disabled">
-        <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
-          {{pokemon.viewValue}}
-        </mat-option>
-      </mat-optgroup>
-    </mat-select>
-</mat-form-field>
-
-<h4>Multiple</h4>
-<mat-form-field>
-    <mat-label>Toppings</mat-label>
-    <mat-select [formControl]="toppings" multiple>
-      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-    </mat-select>
-</mat-form-field>
-
-<h4>Custom trigger</h4>
-<mat-form-field>
-    <mat-label>Toppings</mat-label>
-    <mat-select [formControl]="toppings" multiple>
-      <mat-select-trigger>
-        {{toppings.value?.[0] || ''}}
-        <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
-          (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-        </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-    </mat-select>
-</mat-form-field>
+<form [formGroup]="form">
+  <div class="row">
+    <h1>Angular Material Default</h1>
+    <div class="col-6">
+      <h4>Group</h4>
+      <mat-form-field>
+          <mat-label>Pokemon</mat-label>
+          <mat-select formControlName="pokemon">
+            <mat-option>-- None --</mat-option>
+            <mat-optgroup *ngFor="let group of pokemonGroups" [label]="group.name"
+                          [disabled]="group.disabled">
+              <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+                {{pokemon.viewValue}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <h4>Multiple</h4>
+      <mat-form-field>
+          <mat-label>Toppings</mat-label>
+          <mat-select formControlName="toppings1" multiple>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <h4>Custom trigger</h4>
+      <mat-form-field>
+          <mat-label>Toppings</mat-label>
+          <mat-select formControlName="toppings2" multiple>
+            <mat-select-trigger>
+              {{toppings2.value?.[0] || ''}}
+              <span *ngIf="(toppings2.value?.length || 0) > 1" class="example-additional-selection">
+                (+{{(toppings2.value?.length || 0) - 1}} {{toppings2.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <h1>openUI Directive</h1>
+    <div class="col-6">
+      <h3>multiple</h3>
+      <mat-form-field>
+        <mat-label>Toppings</mat-label>
+        <mat-select openUI placeholder="openUI multiple" formControlName="toppings3" multiple >
+          <mat-select-trigger>
+            {{toppings3.value?.[0] || ''}}
+            <span *ngIf="(toppings3.value?.length || 0) > 1" class="example-additional-selection">
+              (+{{(toppings3.value?.length || 0) - 1}} {{toppings3.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <h3>single</h3>
+      <mat-form-field>
+        <mat-label>Toppings</mat-label>
+        <mat-select openUI placeholder="openUI single" formControlName="toppings4">
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>'
+    </div>
+  </div>
+</form>

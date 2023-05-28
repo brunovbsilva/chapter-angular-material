@@ -1,0 +1,33 @@
+<h1>
+    {{ data.placeholder }}
+    <mat-form-field class="form-field">
+        <mat-label>{{ 'Filtro' }}</mat-label>
+        <input #matInput matInput placeholder="Pesquise aqui">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</h1>
+<div mat-dialog-content>
+    <mat-selection-list class="select-list">
+        <mat-list-item
+          *ngIf="(data.options | selectUiFilterSearch: matInput.value).length == 0">
+          {{ 'Não foram encontrados resultados' }}
+        </mat-list-item>
+        <mat-list-item 
+          *ngIf="(matInput.value == '') && (data.options.length != 0) && data.multiple"
+          (click)="toggleSelectAll()">
+          <mat-checkbox
+            [indeterminate]="indeterminated" 
+            [checked]="selectAll">
+          </mat-checkbox>
+          {{ !selectAll ? 'Selecionar todos' : 'Remover todos' }}
+        </mat-list-item>
+        <mat-list-item 
+          *ngFor="let item of data.options | selectUiFilterSearch: matInput.value"
+          togglePosition="before"
+          (click)="toggleSelectItem(item)"
+          color="primary">
+          <mat-checkbox *ngIf="data.multiple" [checked]="item.selected" [value]="item.value"></mat-checkbox>
+          {{item.viewValue}}
+        </mat-list-item>
+    </mat-selection-list>
+</div>

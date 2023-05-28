@@ -14,6 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { OpenUIDirective } from './custom-components/mat-select/directives/open-ui.directive';
+import { SelectDialogComponent } from './custom-components/mat-select/select-dialog/select-dialog.component';
+import { SelectUiFilterSearchPipe } from './custom-components/mat-select/pipe/select-ui-filter-search.pipe';
 
 @NgModule({
     imports: [
@@ -31,7 +35,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatIconModule,
         MatListModule,
         MatMenuModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatCheckboxModule
     ],
     exports: [
         A11yModule,
@@ -47,7 +52,15 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatIconModule,
         MatListModule,
         MatMenuModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        SelectDialogComponent,
+        SelectUiFilterSearchPipe,
+        OpenUIDirective
+    ],
+    declarations: [
+        SelectDialogComponent,
+        SelectUiFilterSearchPipe,
+        OpenUIDirective
     ]
 })
 export class MaterialModule {}
